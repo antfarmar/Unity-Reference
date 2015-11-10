@@ -14,6 +14,7 @@
 
 # Code Snippets
 ## Coroutines
+[(video tutorial)](https://unity3d.com/learn/tutorials/modules/intermediate/scripting/coroutines)
 * [`Coroutine`](http://docs.unity3d.com/ScriptReference/Coroutine.html) inherits from [`YieldInstruction`](http://docs.unity3d.com/ScriptReference/YieldInstruction.html)
 * A function that can suspend its execution (yield) until the given `YieldInstruction` finishes.
 * Can be used as a way to spread an effect over a period time, but it is also a **useful optimization**:
@@ -32,20 +33,29 @@ IEnumerator SomeCoroutine() {
 ```
 ### Usage
 Use [StartCoroutine](http://docs.unity3d.com/ScriptReference/MonoBehaviour.StartCoroutine.html) methods to start a coroutine.
+```csharp
+public Coroutine StartCoroutine(IEnumerator method); // Typical usage. Just pass the method call as parameter.
+public Coroutine StartCoroutine(string methodName, object value = null); // Higher runtime overhead to start the coroutine this way; can pass only one parameter.
+```
 Use [StopCoroutine](http://docs.unity3d.com/ScriptReference/MonoBehaviour.StopCoroutine.html) methods to stop a coroutine.
 ```csharp
-// Calls the method "normally" with as many parameters as req'd. Typical usage case.
-public Coroutine StartCoroutine(IEnumerator method);
-// Stops the coroutine stored in routine running on this behaviour
-public void StopCoroutine(IEnumerator routine);
-
-// String name version: Higher runtime overhead to start the coroutine; can pass only one parameter.
-// Allows you to use `StopCoroutine` with a specific method name though.
-public Coroutine StartCoroutine(string methodName, object value = null);
-// Stops the first coroutine named methodName.
-public void StopCoroutine(string methodName);
+public void StopCoroutine(IEnumerator routine); // Stops the coroutine stored in routine running on this behaviour.
+public void StopCoroutine(string methodName); // Stops the first coroutine named methodName.
+public void StopAllCoroutines(); // Stops all coroutines running on this behaviour.
 ```
 Example usage:
+```csharp	
+// Need a reference to a specific coroutine instance to stop it this way.
+IEnumerator instance = null;
+ 
+ // Start coroutine
+ instance = SomeCoroutine(a, b, c);
+ StartCoroutine(instance); // or instance = StartCoroutine(SomeCoroutine (a, b, c)); (Coroutine continue failure?)
+ 
+ // Stop coroutine
+ StopCoroutine(instance);
+``` 
+
 ```csharp
 void Start() {
   print("Starting " + Time.time);
@@ -58,6 +68,7 @@ IEnumerator WaitAndPrint(float waitTime) {
     print("WaitAndPrint " + Time.time);
 }
 ```
+
 ### Coroutine Return Types
 ```csharp	
 yield return null; // A yield instruction that just returns.
