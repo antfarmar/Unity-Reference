@@ -38,6 +38,21 @@ IEnumerator SomeCoroutine() {
     }
 }
 ```
+Coroutines also make a nice game level loop:
+```csharp
+// This is called from start and will run each phase of the game one after another.
+private IEnumerator GameLoop() {
+    yield return StartCoroutine (LevelStart()); // Start the level: Initialize, do some fun GUI stuff, ..., WaitForSeconds if setup too fast.
+    yield return StartCoroutine (LevelPlay()); // Let the user(s) play the level until a win or game over condition is met, then return back here.
+    yield return StartCoroutine (LevelEnd()); // Find out if some user(s) "won" the level or not. Also, do some cleanup.
+    
+    if (WinCondition) { // Check if game level progression conditions were met.
+        Application.LoadLevel(++level); // or Application.LoadLevel(Application.loadedLevel) if using same scene
+    } else { // Let the user retry the level by restarting this (non-yielding) coroutine again.
+        StartCoroutine (GameLoop());
+    }
+}
+```
 ### Usage
 Use [StartCoroutine](http://docs.unity3d.com/ScriptReference/MonoBehaviour.StartCoroutine.html) methods to start a coroutine.
 ```csharp
