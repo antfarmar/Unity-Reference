@@ -6,7 +6,7 @@
 # Index
 1. [Code Snippets](#code-snippets)
 2. [Techniques](#techniques)
-  * [Coroutines](##coroutines)
+  * [Coroutines](#coroutines)
 3. [Quick Links](#quick-links)
   * [Official](#unity-website)
   * [Documentation](#documentation)
@@ -18,7 +18,8 @@
 # Code Snippets
 
 # Techniques
-## Coroutines [[video tutorial]](https://unity3d.com/learn/tutorials/modules/intermediate/scripting/coroutines)
+## Coroutines
+[[video tutorial]](https://unity3d.com/learn/tutorials/modules/intermediate/scripting/coroutines)
 * [`Coroutine`](http://docs.unity3d.com/ScriptReference/Coroutine.html) inherits from [`YieldInstruction`](http://docs.unity3d.com/ScriptReference/YieldInstruction.html)
 * A function that can suspend its execution (yield) until the given `YieldInstruction` finishes.
 * Can be used as a way to spread an effect over a period time, but it is also a **useful optimization**:
