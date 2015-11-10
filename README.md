@@ -38,8 +38,13 @@ IEnumerator SomeCoroutine() {
     }
 }
 ```
-Coroutines also make a nice game level loop:
+Coroutines also admit a nice, clean, readable game loop:
 ```csharp
+void Start() {
+    // ... other start code ...
+    StartCoroutine (GameLoop()); // Let's play!
+}
+
 // This is called from start and will run each phase of the game one after another.
 private IEnumerator GameLoop() {
     yield return StartCoroutine (LevelStart()); // Start the level: Initialize, do some fun GUI stuff, ..., WaitForSeconds if setup too fast.
