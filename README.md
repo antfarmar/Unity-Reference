@@ -22,6 +22,7 @@
 * Can be used as a way to spread an effect over a period time, but it is also a **useful optimization**:
 
 > When a task doesn’t need to be repeated quite so frequently, you can put it in a coroutine to get an update regularly but not every single frame. *i.e. Calling an expensive function every frame in `Update()` might introduce significant overhead. To overcome this, use a coroutine to call it, say, every tenth of a second instead.*
+
 ```csharp 
 void Update() {
     StartCoroutine(SomeCoroutine);
