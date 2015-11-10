@@ -101,4 +101,4 @@ IEnumerator DoSomething(float someParameter) {
 * [Scripting API](http://docs.unity3d.com/ScriptReference/index.html)
 * [Scripting Tutorials: Concise Videos & Code Snippets](http://unity3d.com/learn/tutorials/topics/scripting)
 
-![image title](image.png)
+![Entity-Component Pattern](Entity-Component.png)
