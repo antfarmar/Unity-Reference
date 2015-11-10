@@ -31,26 +31,32 @@ IEnumerator SomeCoroutine() {
 }
 ```
 ### Usage
-Use [StartCoroutine](http://docs.unity3d.com/ScriptReference/MonoBehaviour.StartCoroutine.html) methods to start a coroutine:
-
+Use [StartCoroutine](http://docs.unity3d.com/ScriptReference/MonoBehaviour.StartCoroutine.html) methods to start a coroutine.
+Use [StopCoroutine](http://docs.unity3d.com/ScriptReference/MonoBehaviour.StopCoroutine.html) methods to stop a coroutine.
 ```csharp
-// Calls a method normally with as many parameters as req'd.
+// Calls the method "normally" with as many parameters as req'd. Typical usage case.
 public Coroutine StartCoroutine(IEnumerator method);
+// Stops the coroutine stored in routine running on this behaviour
+public void StopCoroutine(IEnumerator routine);
 
-// String version: Higher runtime overhead to start the coroutine; can pass only one parameter.
+// String name version: Higher runtime overhead to start the coroutine; can pass only one parameter.
 // Allows you to use `StopCoroutine` with a specific method name though.
 public Coroutine StartCoroutine(string methodName, object value = null);
+// Stops the first coroutine named methodName.
+public void StopCoroutine(string methodName);
 ```
 Example usage:
 ```csharp
-private IEnumerator myCoroutine() { 
-  for (int i = 0; i < 10; i++) { 
-    Debug.Log(i); 
-    yield return 
-  } 
-  StopCoroutine("myCoroutine"); 
-} 
-StartCoroutine("myCoroutine"); 
+void Start() {
+  print("Starting " + Time.time);
+  StartCoroutine(WaitAndPrint(2.0F));
+  print("Before WaitAndPrint Finishes " + Time.time);
+}
+
+IEnumerator WaitAndPrint(float waitTime) {
+  yield return new WaitForSeconds(waitTime);
+    print("WaitAndPrint " + Time.time);
+}
 ```
 ### Coroutine Return Types
 ```csharp	
