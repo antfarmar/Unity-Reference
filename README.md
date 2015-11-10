@@ -16,7 +16,22 @@
 ## Coroutines
 * [`Coroutine`](http://docs.unity3d.com/ScriptReference/Coroutine.html) inherits from [`YieldInstruction`](http://docs.unity3d.com/ScriptReference/YieldInstruction.html)
 * A function that can suspend its execution (yield) until the given `YieldInstruction` finishes.
-* Use [StartCoroutine](http://docs.unity3d.com/ScriptReference/MonoBehaviour.StartCoroutine.html) methods to start a coroutine:
+* Can be used as a way to spread an effect over a period time, but it is also a **useful optimization**:
+ * When a task doesn’t need to be repeated quite so frequently, you can put it in a coroutine to get an update regularly but not every single frame. *i.e. Calling an expensive function every frame in `Update()` might introduce significant overhead. To overcome this, use a coroutine to call it, say, every tenth of a second instead.*
+```csharp 
+void Update() {
+    StartCoroutine(SomeCoroutine);
+}
+
+IEnumerator SomeCoroutine() {
+    while(true) {
+        ExpensiveFunction();
+        yield return new WaitForSeconds(.1f);
+    }
+}
+```
+### Usage
+Use [StartCoroutine](http://docs.unity3d.com/ScriptReference/MonoBehaviour.StartCoroutine.html) methods to start a coroutine:
 
 ```csharp
 // Calls a method normally with as many parameters as req'd.
