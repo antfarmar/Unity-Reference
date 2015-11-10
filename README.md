@@ -115,6 +115,7 @@ IEnumerator DoSomething(float someParameter) {
 ### Documentation
 * [Unity Manual](http://docs.unity3d.com/Manual/index.html)
 * [Scripting API](http://docs.unity3d.com/ScriptReference/index.html)
+* [Script Lifecycle Flowchart](http://docs.unity3d.com/Manual/ExecutionOrder.html)
 
 ### Community
 * [Unity Forums](http://forum.unity3d.com/)
