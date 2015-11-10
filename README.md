@@ -1,6 +1,8 @@
 # Unity Cheat Sheet
 *Code snippets, Techniques, Optimizations, Links*
 
+![Entity-Component Pattern](Entity-Component.png)
+
 # Index
 1. [Code Snippets](#code-snippets)
 2. [Techniques](#techniques)
@@ -100,5 +102,3 @@ IEnumerator DoSomething(float someParameter) {
 ### Scripting
 * [Scripting API](http://docs.unity3d.com/ScriptReference/index.html)
 * [Scripting Tutorials: Concise Videos & Code Snippets](http://unity3d.com/learn/tutorials/topics/scripting)
-
-![Entity-Component Pattern](Entity-Component.png)
