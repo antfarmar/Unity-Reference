@@ -30,10 +30,13 @@
 > When a task does not need to be needlessly repeated quite so frequently, you can put it in a coroutine to get an update regularly but not in every single frame. Also, calling an expensive function every frame in `Update()` might introduce significant overhead. To overcome this, use a coroutine to call it, say, only every tenth of a second instead.*
 
 ```csharp 
-void Update() {
+void Start() {
     StartCoroutine(SomeCoroutine);
 }
 
+void Update() {
+    //ExpensiveFunction();  // muh framerates :(
+}
 IEnumerator SomeCoroutine() {
     while(true) {
         ExpensiveFunction();
