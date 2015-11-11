@@ -1,6 +1,5 @@
 # Unity Cheat Sheet
-*Code snippets, Techniques, Optimizations, Links*
-
+***Code snippets, Techniques, Optimizations, Links***
 ![Entity-Component Pattern](Entity-Component.png)
 
 # Index
@@ -11,7 +10,7 @@
   * [Official](#unity-website)
   * [Documentation](#documentation)
   * [Community](#community)
-  * [Sripting](#scripting)
+  * [Scripting](#scripting)
   * [Vectors](#vectors)
   * [Optimizations](#optimizations)
 4. [Declarations](#declarations)
@@ -129,10 +128,10 @@ IEnumerator DoSomething(float someParameter) {
 * [Good Coding Practices](https://unity3d.com/learn/tutorials/modules/intermediate/scripting/coding-practices)
 
 ### Game Object, Component, Transform
-* [GameObject(http://docs.unity3d.com/Manual/GameObjects.html)|[Class](http://docs.unity3d.com/ScriptReference/GameObject.html)
-* [Component(http://docs.unity3d.com/Manual/UsingComponents.html)]|[Class](http://docs.unity3d.com/ScriptReference/Component.html)
-* [Transform(http://docs.unity3d.com/Manual/Transforms.html)]|[Class](http://docs.unity3d.com/ScriptReference/Transform.html)
-* [Input(http://docs.unity3d.com/Manual/ConventionalGameInput.html)]|[Class](http://docs.unity3d.com/ScriptReference/Input.html)
+* [GameObject](http://docs.unity3d.com/Manual/GameObjects.html)|[Class](http://docs.unity3d.com/ScriptReference/GameObject.html)
+* [Component](http://docs.unity3d.com/Manual/UsingComponents.html)|[Class](http://docs.unity3d.com/ScriptReference/Component.html)
+* [Transform](http://docs.unity3d.com/Manual/Transforms.html)|[Class](http://docs.unity3d.com/ScriptReference/Transform.html)
+* [Input](http://docs.unity3d.com/Manual/ConventionalGameInput.html)|[Class](http://docs.unity3d.com/ScriptReference/Input.html)
 
 ### Vectors|Math|Physics|Input
 * [Vector Cookbook](http://docs.unity3d.com/Manual/UnderstandingVectorArithmetic.html)
@@ -140,7 +139,7 @@ IEnumerator DoSomething(float someParameter) {
 * [Mathf](http://docs.unity3d.com/ScriptReference/Mathf.html)
 * [Physics](http://docs.unity3d.com/ScriptReference/Physics.html)|[Raycast](http://docs.unity3d.com/ScriptReference/Physics.Raycast.html)|[Hit](http://docs.unity3d.com/ScriptReference/RaycastHit.html)
 * [Rigidbody](http://docs.unity3d.com/ScriptReference/Rigidbody.html)|[2D](http://docs.unity3d.com/ScriptReference/Rigidbody.html)
-* [](http://docs.unity3d.com/Manual/ConventionalGameInput.html)
+
 ### Optimizations
 * [Optimizing Graphics Performance](http://docs.unity3d.com/Manual/OptimizingGraphicsPerformance.html)
 
