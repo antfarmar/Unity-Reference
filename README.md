@@ -8,13 +8,13 @@
 2. [Techniques](#techniques)
   * [Coroutines](#coroutines)
 3. [Quick Links](#quick-links)
-  * [Official](#unity-website)
+  * [Unity3D Website](#unitywebsite)
   * [Documentation](#documentation)
   * [Community](#community)
   * [Scripting](#scripting)
-  * [Vectors|Math|Physics|Input](#vectors-math-physics-input)
+  * [Vectors|Math|Physics|Input](#vectorsmathphysicsinput)
   * [Optimizations](#optimizations)
-4. [Miscellaneous](#declarations)
+4. [Miscellaneous](#miscellaneous)
 
 
 # Code Snippets
