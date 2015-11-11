@@ -40,7 +40,7 @@ IEnumerator SomeCoroutine() {
     }
 }
 ```
-Coroutines also admit a nice, clean, readable game loop:
+Coroutines also admit a nice, slick, readable game loop:
 ```csharp
 void Start() {
     // ... other start code ...
@@ -138,7 +138,7 @@ IEnumerator DoSomething(float someParameter) {
 * [Vector3](http://docs.unity3d.com/ScriptReference/Vector3.html)|[Vector2](http://docs.unity3d.com/ScriptReference/Vector2.html)
 * [Mathf](http://docs.unity3d.com/ScriptReference/Mathf.html)
 * [Physics](http://docs.unity3d.com/ScriptReference/Physics.html)|[Raycast](http://docs.unity3d.com/ScriptReference/Physics.Raycast.html)|[Hit](http://docs.unity3d.com/ScriptReference/RaycastHit.html)
-* [Physics2D](http://docs.unity3d.com/ScriptReference/Physics2D.html)|[Raycast2D](http://docs.unity3d.com/ScriptReference/Physics2D.Raycast.html)|[Hit2D](http://docs.unity3d.com/ScriptReference/RaycastHit2D.html)
+* [Physics2D](http://docs.unity3d.com/ScriptReference/Physics2D.html)|[Raycast](http://docs.unity3d.com/ScriptReference/Physics2D.Raycast.html)|[Hit2D](http://docs.unity3d.com/ScriptReference/RaycastHit2D.html)
 * [Rigidbody](http://docs.unity3d.com/ScriptReference/Rigidbody.html)|[2D](http://docs.unity3d.com/ScriptReference/Rigidbody.html)
 * [Input](http://docs.unity3d.com/Manual/ConventionalGameInput.html)|[Class](http://docs.unity3d.com/ScriptReference/Input.html)
 
