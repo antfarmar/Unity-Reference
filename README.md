@@ -12,6 +12,7 @@
   * [Documentation](#documentation)
   * [Community](#community)
   * [Scripting](#scripting)
+  * [GameObject|Component|Mono|Behaviour|Transform](#gameobjectcomponentmonobehaviourtransform)
   * [Vectors|Math|Physics|Input](#vectorsmathphysicsinput)
   * [Optimizations](#optimizations)
 4. [Miscellaneous](#miscellaneous)
