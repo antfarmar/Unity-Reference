@@ -12,7 +12,7 @@
   * [Documentation](#documentation)
   * [Community](#community)
   * [Scripting](#scripting)
-  * [Vectors](#vectors)
+  * [Vectors|Math|Physics|Input](#vectors-math-physics-input)
   * [Optimizations](#optimizations)
 4. [Miscellaneous](#declarations)
 
@@ -138,7 +138,7 @@ IEnumerator DoSomething(float someParameter) {
 * [Vector3](http://docs.unity3d.com/ScriptReference/Vector3.html)|[Vector2](http://docs.unity3d.com/ScriptReference/Vector2.html)
 * [Mathf](http://docs.unity3d.com/ScriptReference/Mathf.html)
 * [Physics](http://docs.unity3d.com/ScriptReference/Physics.html)|[Raycast](http://docs.unity3d.com/ScriptReference/Physics.Raycast.html)|[Hit](http://docs.unity3d.com/ScriptReference/RaycastHit.html)
-* [Physics2D](http://docs.unity3d.com/ScriptReference/Physics2D.html)|[Raycast](http://docs.unity3d.com/ScriptReference/Physics2D.Raycast.html)|[Hit](http://docs.unity3d.com/ScriptReference/RaycastHit2D.html)
+* [Physics2D](http://docs.unity3d.com/ScriptReference/Physics2D.html)|[Raycast2D](http://docs.unity3d.com/ScriptReference/Physics2D.Raycast.html)|[Hit2D](http://docs.unity3d.com/ScriptReference/RaycastHit2D.html)
 * [Rigidbody](http://docs.unity3d.com/ScriptReference/Rigidbody.html)|[2D](http://docs.unity3d.com/ScriptReference/Rigidbody.html)
 * [Input](http://docs.unity3d.com/Manual/ConventionalGameInput.html)|[Class](http://docs.unity3d.com/ScriptReference/Input.html)
 
