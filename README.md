@@ -12,6 +12,8 @@
   * [Documentation](#documentation)
   * [Community](#community)
   * [Sripting](#scripting)
+  * [Vectors](#vectors)
+  * [Optimizations](#optimizations)
 4. [Declarations](#declarations)
 
 
@@ -124,3 +126,24 @@ IEnumerator DoSomething(float someParameter) {
 ### Scripting
 * [Scripting API](http://docs.unity3d.com/ScriptReference/index.html)
 * [Scripting Tutorials: Concise Videos & Code Snippets](http://unity3d.com/learn/tutorials/topics/scripting)
+* [Good Coding Practices](https://unity3d.com/learn/tutorials/modules/intermediate/scripting/coding-practices)
+
+### Game Object, Component, Transform
+* [GameObject(http://docs.unity3d.com/Manual/GameObjects.html)|[Class](http://docs.unity3d.com/ScriptReference/GameObject.html)
+* [Component(http://docs.unity3d.com/Manual/UsingComponents.html)]|[Class](http://docs.unity3d.com/ScriptReference/Component.html)
+* [Transform(http://docs.unity3d.com/Manual/Transforms.html)]|[Class](http://docs.unity3d.com/ScriptReference/Transform.html)
+* [Input(http://docs.unity3d.com/Manual/ConventionalGameInput.html)]|[Class](http://docs.unity3d.com/ScriptReference/Input.html)
+
+### Vectors|Math|Physics|Input
+* [Vector Cookbook](http://docs.unity3d.com/Manual/UnderstandingVectorArithmetic.html)
+* [Vector3](http://docs.unity3d.com/ScriptReference/Vector3.html)|[2](http://docs.unity3d.com/ScriptReference/Vector2.html)
+* [Mathf](http://docs.unity3d.com/ScriptReference/Mathf.html)
+* [Physics](http://docs.unity3d.com/ScriptReference/Physics.html)|[Raycast](http://docs.unity3d.com/ScriptReference/Physics.Raycast.html)|[Hit](http://docs.unity3d.com/ScriptReference/RaycastHit.html)
+* [Rigidbody](http://docs.unity3d.com/ScriptReference/Rigidbody.html)|[2D](http://docs.unity3d.com/ScriptReference/Rigidbody.html)
+* [](http://docs.unity3d.com/Manual/ConventionalGameInput.html)
+### Optimizations
+* [Optimizing Graphics Performance](http://docs.unity3d.com/Manual/OptimizingGraphicsPerformance.html)
+
+# Miscellaneous
+* [Unify Community Wiki](http://wiki.unity3d.com/index.php/Main_Page)
+ 
