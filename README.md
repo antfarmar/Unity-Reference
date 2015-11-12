@@ -66,7 +66,7 @@ So why be Singleton? A non-instantiable static class could do the job, no?!
 * You can’t implement an interface with a static class.
 * You can’t pass around a static class as a parameter.
 
-####### GameManager Singleton Examples
+###### GameManager Singleton Examples
 
 **Minimal:**
 ```csharp
