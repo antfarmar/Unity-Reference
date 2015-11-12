@@ -33,12 +33,12 @@
 
 * [`Coroutine`](http://docs.unity3d.com/ScriptReference/Coroutine.html) inherits from [`YieldInstruction`](http://docs.unity3d.com/ScriptReference/YieldInstruction.html)
 * A function that can suspend its execution (yield) until the given `YieldInstruction` finishes.
-  * No return values or error handling (but can be overcome, if necessary)
+	* No return values or error handling (but can be overcome, if necessary)
 * Can be used as a way to spread an effect over a period time. It is also a **useful optimization**:
-  * Replaces state machines elegantly
-  * Prevents execution blocking
+	* Replaces state machines elegantly
+	* Prevents execution blocking
 
-> When a task does not need to be needlessly repeated quite so frequently, you can put it in a coroutine to get an update regularly but not in every single frame (where it would block execution). Similarly, calling an expensive function every frame in `Update()` will introduce significant slowdown. To overcome this, use a coroutine to call it, say, only every tenth of a second instead of every frame update.
+> When a task does not need to be needlessly repeated quite so frequently, you can put it in a coroutine to get an update regularly but not in every single frame. Similarly, calling an expensive function every frame in `Update()` will introduce significant slowdown, since it would block execution. To overcome this use a coroutine to call it, say, only every tenth of a second instead of _every_ frame update.
 
 For example:
 ```csharp 
@@ -47,7 +47,7 @@ void Start() {
 }
 
 void Update() {
-    //ExpensiveFunction();  // muh framerates :( 
+    // ExpensiveFunction();		// muh framerates :( 
 }
 
 IEnumerator SomeCoroutine() {
@@ -66,7 +66,7 @@ IEnumerator SomeCoroutine() {
     * AI Sequences/State Machines
     * Expensive Operations
 
-* **Coroutines also admit a nice, slick, readable game loop:**
+* **Coroutines also admit a slick, readable game loop:**
 ```csharp
 void Start() {
     StartCoroutine (GameLoop());    // Let's play!
@@ -85,22 +85,28 @@ private IEnumerator GameLoop() {
     }
 }
 ```
+
 ### Usage
+
 Use [StartCoroutine](http://docs.unity3d.com/ScriptReference/MonoBehaviour.StartCoroutine.html) methods to start a coroutine.
 ```csharp
 public Coroutine StartCoroutine(IEnumerator method); // Typical usage. Pass the name of the method in code.
 public Coroutine StartCoroutine(string methodName, object value = null); // Higher runtime overhead to start the coroutine this way; can pass only one parameter.
 ```
+
 Use [StopCoroutine](http://docs.unity3d.com/ScriptReference/MonoBehaviour.StopCoroutine.html) methods to stop a coroutine.
 ```csharp
 public void StopCoroutine(IEnumerator method); // Stops the coroutine stored in method running on this behaviour.
 public void StopCoroutine(string methodName); // Stops the first coroutine named methodName.
 public void StopAllCoroutines(); // Stops all coroutines running on this behaviour.
 ```
+
 >*Note: If you call multiple coroutines with the same name, even a single StopCoroutine with that name will destroy them all!*
 
 ### Coroutine Return Types
-Normal coroutine updates are run after the `Update()` function returns. Different uses of Coroutines:
+Normal coroutine updates are run after the `Update()` function returns.
+Different uses of Coroutines by **return type:**
+
 ```csharp
 yield                       // The coroutine will continue after all Update functions have been called on the next frame.
 yield WaitForSeconds        // Continue after a specified time delay, after all Update functions have been called for the frame
@@ -109,6 +115,7 @@ yield WaitForEndOfFrame     // Continue after all FixedUpdate has been called on
 yield WWW                   // Continue after a WWW download has completed.
 yield StartCoroutine        // Chains the coroutine, and will wait for the MyFunc coroutine to complete first.
 ```
+
 **In actual C# code:**
 ```csharp
 yield return null;                      
@@ -117,20 +124,18 @@ yield new WWW(url);
 yield return new WaitForFixedUpdate();  
 yield StartCoroutine(routine)           
 ```
+
 ### Example usages of `StartCoroutine()` & `StopCoroutine()`:
 
 * **Passing method name as code:**
 ```csharp	
-// Need a reference to a specific coroutine instance to stop it this way.
-IEnumerator instance = null;
- 
-// Start coroutine
+IEnumerator instance = null;		// Need a reference to a specific coroutine instance to stop it.
 instance = SomeCoroutine(a, b, c);
-StartCoroutine(instance); // or instance = StartCoroutine(SomeCoroutine (a, b, c)); (Coroutine continue failure?)
- 
-// Stop coroutine
-StopCoroutine(instance);
+StartCoroutine(instance); 			// Start coroutine
+									// or instance = StartCoroutine(SomeCoroutine (a, b, c)); (Coroutine continue failure?)
+StopCoroutine(instance);			// Stop this specific coroutine instance.
 ``` 
+
 * **Passing method name as string:**
 ```csharp
 IEnumerator Start() {
@@ -155,9 +160,12 @@ IEnumerator DoSomething(float someParameter) {
 ### Section One
 
 * to do
+
 -----------------------------------------------------------
 # Quick Links
+
 ## Unity Website
+
 ### Documentation
 * [Unity Manual](http://docs.unity3d.com/Manual/index.html)
 * [Scripting API](http://docs.unity3d.com/ScriptReference/index.html)
