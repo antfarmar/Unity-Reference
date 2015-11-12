@@ -28,6 +28,10 @@
 # Techniques
 
 ## Singleton Pattern
+**Game Managers & Global Static Variables**
+
+http://wiki.unity3d.com/index.php/Singleton
+http://wiki.unity3d.com/index.php/Toolbox
 
 * TODO
 
