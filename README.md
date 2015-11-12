@@ -33,13 +33,14 @@
 
 * [`Coroutine`](http://docs.unity3d.com/ScriptReference/Coroutine.html) inherits from [`YieldInstruction`](http://docs.unity3d.com/ScriptReference/YieldInstruction.html)
 * A function that can suspend its execution (yield) until the given `YieldInstruction` finishes.
-  * But no return values or error handling (but can be overcome, if necessary)
-* Can be used as a way to spread an effect over a period time, but it is also a **useful optimization**:
+  * No return values or error handling (but can be overcome, if necessary)
+* Can be used as a way to spread an effect over a period time. It is also a **useful optimization**:
   * Replaces state machines elegantly
   * Prevents execution blocking
 
-> When a task does not need to be needlessly repeated quite so frequently, you can put it in a coroutine to get an update regularly but not in every single frame (where it would block execution). Calling an expensive function every frame in `Update()` will introduce significant slowdown. To overcome this, use a coroutine to call it, say, only every tenth of a second instead.*
+> When a task does not need to be needlessly repeated quite so frequently, you can put it in a coroutine to get an update regularly but not in every single frame (where it would block execution). Similarly, calling an expensive function every frame in `Update()` will introduce significant slowdown. To overcome this, use a coroutine to call it, say, only every tenth of a second instead of every frame update.
 
+For example:
 ```csharp 
 void Start() {
   StartCoroutine(SomeCoroutine);
@@ -56,11 +57,11 @@ IEnumerator SomeCoroutine() {
   }
 }
 ```
-* Common pattern handled by Coroutines:
-  * Operations that take more than 1 frame
-  * Don't want to block execution
-  * And want to know when finished running
-  * Examples:
+* **A common pattern effectively handled by coroutines:
+  * Operations that take more than 1 frame...
+  * Where we don't want to block execution...
+  * And want to know when finished running.
+  * **Examples:
     * Cutscenes, Animation
     * AI Sequences/State Machines
     * Expensive Operations
@@ -68,19 +69,18 @@ IEnumerator SomeCoroutine() {
 * Coroutines also admit a nice, slick, readable game loop:
 ```csharp
 void Start() {
-  // ... other start code ...
-  StartCoroutine (GameLoop()); // Let's play!
+    StartCoroutine (GameLoop());    // Let's play!
 }
 
-// This is called from start and will run each phase of the game one after another.
+// This is called from Start() and will run each phase of the game one after another.
 private IEnumerator GameLoop() {
-    yield return StartCoroutine (LevelStart()); // Start the level: Initialize, do some fun GUI stuff, ..., WaitForSeconds if setup too fast.
-    yield return StartCoroutine (LevelPlay()); // Let the user(s) play the level until a win or game over condition is met, then return back here.
-    yield return StartCoroutine (LevelEnd()); // Find out if some user(s) "won" the level or not. Also, do some cleanup.
+ yield return StartCoroutine (LevelStart());    // Start the level: Initialize, do some fun GUI stuff, ..., yield WaitForSeconds if setup too fast.
+    yield return StartCoroutine (LevelPlay());  // Let the user(s) play the level until a win or game over condition is met, then return back here.
+    yield return StartCoroutine (LevelEnd());   // Find out if some user(s) "won" the level or not. Also, do some cleanup.
     
-    if (WinCondition) { // Check if game level progression conditions were met.
-      Application.LoadLevel(++level); // or Application.LoadLevel(Application.loadedLevel) if using same scene
-    } else { // Let the user retry the level by restarting this (non-yielding) coroutine again.
+    if (WinCondition) {     // Check if game level progression conditions were met.
+      Application.LoadLevel(++level);   // or Application.LoadLevel(Application.loadedLevel) if using same scene
+    } else {    // Let the user retry the level by restarting this (non-yielding) coroutine again.
       StartCoroutine (GameLoop());
     }
 }
@@ -100,12 +100,22 @@ public void StopAllCoroutines(); // Stops all coroutines running on this behavio
 >*Note: If you call multiple coroutines with the same name, even a single StopCoroutine with that name will destroy them all!*
 
 ### Coroutine Return Types
-```csharp	
-yield return null;                      // A yield instruction that just returns.
-yield return new WaitForSeconds(t);     // A yield instruction that waits for t seconds.
-yield new WWW(url);                     // A yield instruction that waits for the retrieval of contents of URLs.
-yield return new WaitForFixedUpdate();  // Waits until next fixed frame rate update function. 
-yield StartCoroutine(routine)           // Chaining: can also wait for other coroutines to finish execution.
+Normal coroutine updates are run after the `Update()` function returns. Different uses of Coroutines:
+```csharp
+yield                       // The coroutine will continue after all Update functions have been called on the next frame.
+yield WaitForSeconds        // Continue after a specified time delay, after all Update functions have been called for the frame
+yield WaitForFixedUpdate    // Continue after all FixedUpdate has been called on all scripts
+yield WaitForEndOfFrame     // Continue after all FixedUpdate has been called on all scripts
+yield WWW                   // Continue after a WWW download has completed.
+yield StartCoroutine        // Chains the coroutine, and will wait for the MyFunc coroutine to complete first.
+```
+Example usage as C# code:
+```csharp
+yield return null;                      
+yield return new WaitForSeconds(t);     
+yield new WWW(url);                     
+yield return new WaitForFixedUpdate();  
+yield StartCoroutine(routine)           
 ```
 
 Example usage:
