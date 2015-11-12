@@ -1,12 +1,13 @@
 # Unity Cheat Sheet
 ***Code snippets, Techniques, Optimizations, Links***
-
+-----------------------------------------------------------
 ![Entity-Component Pattern](Entity-Component.png)
-
+-----------------------------------------------------------
 # Index
 1. [Code Snippets](#code-snippets)
 2. [Techniques](#techniques)
   * [Coroutines](#coroutines)
+  * [Events](#events)
 3. [Optimizations](#optimizations)
   * to do
 4. [Quick Links](#quick-links)
@@ -18,10 +19,9 @@
   * [Vectors|Math|Physics|Input](#vectorsmathphysicsinput)
   * [Optimizations](#optimizations)
   * [Miscellaneous](#miscellaneous)
-
-
+-----------------------------------------------------------
 # Code Snippets
-
+-----------------------------------------------------------
 # Techniques
 ## Coroutines
 [[video tutorial]](https://unity3d.com/learn/tutorials/modules/intermediate/scripting/coroutines)
@@ -119,9 +119,19 @@ IEnumerator DoSomething(float someParameter) {
 }
 ```
 
+-----------------------------------------------------------
+
+## Events
+###Unity Events
+### C# Delegate Events
+
+-----------------------------------------------------------
+
 # Optimizations
 ### Section One
 * to do
+
+-----------------------------------------------------------
 
 # Quick Links
 ## Unity Website
