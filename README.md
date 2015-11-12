@@ -18,6 +18,7 @@
     * [Scripting](#scripting)
     * [GameObject|Component|Mono|Behaviour|Transform](#gameobjectcomponentmonobehaviourtransform)
     * [Vectors|Math|Physics|Input](#vectorsmathphysicsinput)
+    * [Debug|Gizmos](#debug-gizmos)
     * [Optimizations](#optimizations)
     * [Miscellaneous](#miscellaneous)
 
