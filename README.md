@@ -6,20 +6,20 @@
 # Index
 1. [Code Snippets](#code-snippets)
 2. [Techniques](#techniques)
-	* [Singleton Pattern](#singleton-pattern)
-	* [Coroutines](#coroutines)
-	* [Events](#events)
+    * [Singleton Pattern](#singleton-pattern)
+    * [Coroutines](#coroutines)
+    * [Events](#events)
 3. [Optimizations](#optimizations)
-	* TODO
+    * TODO
 4. [Quick Links](#quick-links)
-	* [Unity3D Website](#unity-website)
-	* [Documentation](#documentation)
-	* [Community](#community)
-	* [Scripting](#scripting)
-	* [GameObject|Component|Mono|Behaviour|Transform](#gameobjectcomponentmonobehaviourtransform)
-	* [Vectors|Math|Physics|Input](#vectorsmathphysicsinput)
-	* [Optimizations](#optimizations)
-	* [Miscellaneous](#miscellaneous)
+    * [Unity3D Website](#unity-website)
+    * [Documentation](#documentation)
+    * [Community](#community)
+    * [Scripting](#scripting)
+    * [GameObject|Component|Mono|Behaviour|Transform](#gameobjectcomponentmonobehaviourtransform)
+    * [Vectors|Math|Physics|Input](#vectorsmathphysicsinput)
+    * [Optimizations](#optimizations)
+    * [Miscellaneous](#miscellaneous)
 
 -----------------------------------------------------------
 # Code Snippets
@@ -65,15 +65,15 @@ _One object to control them all_
 **Minimal Quick Hack:**
 ```csharp
 public class GameManager : MonoBehaviour {
-	public static GameManager instance = null;  // Static instance of GameManager which allows it to be accessed by any other script.
+    public static GameManager instance = null;  // Static instance of GameManager which allows it to be accessed by any other script.
 
-	void Awake() {							// Awake is always called before any Start functions.
-		if (instance == null)				// Check if instance already exists.
-			instance = this;				// If not, set instance to this.
-		else if (instance != this)			// If instance already exists and it's not this:
-			Destroy(this.gameObject);		// Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
-		DontDestroyOnLoad(this.gameObject); // Sets this to not be destroyed when loading new scenes.
-	}
+    void Awake() {                          // Awake is always called before any Start functions.
+        if (instance == null)               // Check if instance already exists.
+            instance = this;                // If not, set instance to this.
+        else if (instance != this)          // If instance already exists and it's not this:
+            Destroy(this.gameObject);       // Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
+        DontDestroyOnLoad(this.gameObject); // Sets this to not be destroyed when loading new scenes.
+    }
 }
 ```
 
@@ -95,56 +95,56 @@ public class GameManager : MonoBehaviour {
 
 * [`Coroutine`](http://docs.unity3d.com/ScriptReference/Coroutine.html) inherits from [`YieldInstruction`](http://docs.unity3d.com/ScriptReference/YieldInstruction.html)
 * A function that can suspend its execution (yield) until the given `YieldInstruction` finishes.
-	* No return values or error handling (but can be overcome, if necessary)
+    * No return values or error handling (but can be overcome, if necessary)
 * Can be used as a way to spread an effect over a period time. It is also a **useful optimization**:
-	* Replaces state machines elegantly
-	* Prevents execution blocking
+    * Replaces state machines elegantly
+    * Prevents execution blocking
 
 > When a task does not need to be needlessly repeated quite so frequently, you can put it in a coroutine to get an update regularly but not in every single frame. Similarly, calling an expensive function every frame in `Update()` will introduce significant slowdown, since it would block execution. To overcome this use a coroutine to call it, say, only every tenth of a second instead of _every_ frame update.
 
 For example:
 ```csharp
 void Start() {
-	StartCoroutine(SomeCoroutine);
+    StartCoroutine(SomeCoroutine);
 }
 
 void Update() {
-	// ExpensiveFunction();		// muh framerates :(
+    // ExpensiveFunction();     // muh framerates :(
 }
 
 IEnumerator SomeCoroutine() {
-	while(true) {
-		ExpensiveFunction();
-		yield return new WaitForSeconds(.1f);
-	}
+    while(true) {
+        ExpensiveFunction();
+        yield return new WaitForSeconds(.1f);
+    }
 }
 ```
 * **A common pattern effectively handled by coroutines:**
-	* Operations that take more than 1 frame...
-	* Where we don't want to block execution...
-	* And want to know when finished running.
-	* **Examples:**
-		* Cutscenes, Animation
-		* AI Sequences/State Machines
-		* Expensive Operations
+    * Operations that take more than 1 frame...
+    * Where we don't want to block execution...
+    * And want to know when finished running.
+    * **Examples:**
+        * Cutscenes, Animation
+        * AI Sequences/State Machines
+        * Expensive Operations
 
 * **Coroutines also admit a slick, readable game loop:**
 ```csharp
 void Start() {
-	StartCoroutine (GameLoop());	// Let's play!
+    StartCoroutine (GameLoop());    // Let's play!
 }
 
 // This is called from Start() and will run each phase of the game one after another.
 private IEnumerator GameLoop() {
-	yield return StartCoroutine (LevelStart());	// Start the level: Initialize, do some fun GUI stuff, ..., yield WaitForSeconds if setup too fast.
-	yield return StartCoroutine (LevelPlay());	// Let the user(s) play the level until a win or game over condition is met, then return back here.
-	yield return StartCoroutine (LevelEnd());	// Find out if some user(s) "won" the level or not. Also, do some cleanup.
+    yield return StartCoroutine (LevelStart()); // Start the level: Initialize, do some fun GUI stuff, ..., yield WaitForSeconds if setup too fast.
+    yield return StartCoroutine (LevelPlay());  // Let the user(s) play the level until a win or game over condition is met, then return back here.
+    yield return StartCoroutine (LevelEnd());   // Find out if some user(s) "won" the level or not. Also, do some cleanup.
 
-	if (WinCondition) {					// Check if game level progression conditions were met.
-		Application.LoadLevel(++level);	// or Application.LoadLevel(Application.loadedLevel) if using same scene
-	} else {
-		StartCoroutine (GameLoop());	// Let the user retry the level by restarting this (non-yielding) coroutine again.
-	}
+    if (WinCondition) {                 // Check if game level progression conditions were met.
+        Application.LoadLevel(++level); // or Application.LoadLevel(Application.loadedLevel) if using same scene
+    } else {
+        StartCoroutine (GameLoop());    // Let the user retry the level by restarting this (non-yielding) coroutine again.
+    }
 }
 ```
 
@@ -152,15 +152,15 @@ private IEnumerator GameLoop() {
 
 Use [StartCoroutine](http://docs.unity3d.com/ScriptReference/MonoBehaviour.StartCoroutine.html) methods to start a coroutine.
 ```csharp
-public Coroutine StartCoroutine(IEnumerator method);						// Typical usage. Pass the name of the method in code.
-public Coroutine StartCoroutine(string methodName, object value = null);	// Higher runtime overhead to start the coroutine this way; can pass only one parameter.
+public Coroutine StartCoroutine(IEnumerator method);                        // Typical usage. Pass the name of the method in code.
+public Coroutine StartCoroutine(string methodName, object value = null);    // Higher runtime overhead to start the coroutine this way; can pass only one parameter.
 ```
 
 Use [StopCoroutine](http://docs.unity3d.com/ScriptReference/MonoBehaviour.StopCoroutine.html) methods to stop a coroutine.
 ```csharp
-public void StopCoroutine(IEnumerator method);	// Stops the coroutine stored in method running on this behaviour.
-public void StopCoroutine(string methodName);	// Stops the first coroutine named methodName.
-public void StopAllCoroutines();				// Stops all coroutines running on this behaviour.
+public void StopCoroutine(IEnumerator method);  // Stops the coroutine stored in method running on this behaviour.
+public void StopCoroutine(string methodName);   // Stops the first coroutine named methodName.
+public void StopAllCoroutines();                // Stops all coroutines running on this behaviour.
 ```
 
 >*Note: If you call multiple coroutines with the same name, even a single StopCoroutine with that name will destroy them all!*
@@ -170,12 +170,12 @@ Normal coroutine updates are run after the `Update()` function returns.
 Different uses of Coroutines by **return type:**
 
 ```csharp
-yield						// The coroutine will continue after all Update functions have been called on the next frame.
-yield WaitForSeconds		// Continue after a specified time delay, after all Update functions have been called for the frame
-yield WaitForFixedUpdate	// Continue after all FixedUpdate has been called on all scripts
-yield WaitForEndOfFrame		// Continue after all FixedUpdate has been called on all scripts
-yield WWW					// Continue after a WWW download has completed.
-yield StartCoroutine		// Chains the coroutine, and will wait for the MyFunc coroutine to complete first.
+yield                       // The coroutine will continue after all Update functions have been called on the next frame.
+yield WaitForSeconds        // Continue after a specified time delay, after all Update functions have been called for the frame
+yield WaitForFixedUpdate    // Continue after all FixedUpdate has been called on all scripts
+yield WaitForEndOfFrame     // Continue after all FixedUpdate has been called on all scripts
+yield WWW                   // Continue after a WWW download has completed.
+yield StartCoroutine        // Chains the coroutine, and will wait for the MyFunc coroutine to complete first.
 ```
 
 **In actual C# code:**
@@ -191,26 +191,26 @@ yield StartCoroutine(routine)
 
 * **Passing method name as code:**
 ```csharp
-IEnumerator instance = null;		// Need a reference to a specific coroutine instance to stop it.
+IEnumerator instance = null;        // Need a reference to a specific coroutine instance to stop it.
 instance = SomeCoroutine(a, b, c);
-StartCoroutine(instance); 			// Start coroutine
-									// or instance = StartCoroutine(SomeCoroutine (a, b, c)); (Coroutine continue failure?)
-StopCoroutine(instance);			// Stop this specific coroutine instance.
+StartCoroutine(instance);           // Start coroutine
+                                    // or instance = StartCoroutine(SomeCoroutine (a, b, c)); (Coroutine continue failure?)
+StopCoroutine(instance);            // Stop this specific coroutine instance.
 ```
 
 * **Passing method name as string:**
 ```csharp
 IEnumerator Start() {
-	StartCoroutine("DoSomething", 2.0F);
-	yield return new WaitForSeconds(1);
-	StopCoroutine("DoSomething");
+    StartCoroutine("DoSomething", 2.0F);
+    yield return new WaitForSeconds(1);
+    StopCoroutine("DoSomething");
 }
 
 IEnumerator DoSomething(float someParameter) {
-	while (true) {
-		print("DoSomething Loop");
-		yield return null;
-	}
+    while (true) {
+        print("DoSomething Loop");
+        yield return null;
+    }
 }
 ```
 -----------------------------------------------------------
@@ -269,3 +269,4 @@ IEnumerator DoSomething(float someParameter) {
 
 ### Miscellaneous
 * [Unify Community Wiki](http://wiki.unity3d.com/index.php/Main_Page)
+
