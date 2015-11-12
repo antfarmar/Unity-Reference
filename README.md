@@ -7,7 +7,9 @@
 1. [Code Snippets](#code-snippets)
 2. [Techniques](#techniques)
   * [Coroutines](#coroutines)
-3. [Quick Links](#quick-links)
+3. [Optimizations](#optimizations)
+  * to do
+4. [Quick Links](#quick-links)
   * [Unity3D Website](#unity-website)
   * [Documentation](#documentation)
   * [Community](#community)
@@ -15,7 +17,7 @@
   * [GameObject|Component|Mono|Behaviour|Transform](#gameobjectcomponentmonobehaviourtransform)
   * [Vectors|Math|Physics|Input](#vectorsmathphysicsinput)
   * [Optimizations](#optimizations)
-4. [Miscellaneous](#miscellaneous)
+  * [Miscellaneous](#miscellaneous)
 
 
 # Code Snippets
@@ -37,6 +39,7 @@ void Start() {
 void Update() {
     //ExpensiveFunction();  // muh framerates :(
 }
+
 IEnumerator SomeCoroutine() {
     while(true) {
         ExpensiveFunction();
@@ -116,6 +119,10 @@ IEnumerator DoSomething(float someParameter) {
 }
 ```
 
+# Optimizations
+### Section One
+* to do
+
 # Quick Links
 ## Unity Website
 ### Documentation
@@ -155,7 +162,8 @@ IEnumerator DoSomething(float someParameter) {
 
 ### Optimizations
 * [Optimizing Graphics Performance](http://docs.unity3d.com/Manual/OptimizingGraphicsPerformance.html)
+* [Internal Unity Tips](http://unity3d.com/learn/resources/internal-unity-tips-and-tricks)
 
-# Miscellaneous
+### Miscellaneous
 * [Unify Community Wiki](http://wiki.unity3d.com/index.php/Main_Page)
- 
+
