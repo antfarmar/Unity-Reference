@@ -19,8 +19,10 @@
   * [Vectors|Math|Physics|Input](#vectorsmathphysicsinput)
   * [Optimizations](#optimizations)
   * [Miscellaneous](#miscellaneous)
+ 
 -----------------------------------------------------------
 # Code Snippets
+
 -----------------------------------------------------------
 # Techniques
 ## Coroutines
@@ -118,21 +120,15 @@ IEnumerator DoSomething(float someParameter) {
     }
 }
 ```
-
 -----------------------------------------------------------
-
 ## Events
 ###Unity Events
 ### C# Delegate Events
-
 -----------------------------------------------------------
-
 # Optimizations
 ### Section One
 * to do
-
 -----------------------------------------------------------
-
 # Quick Links
 ## Unity Website
 ### Documentation
