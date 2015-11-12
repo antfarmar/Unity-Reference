@@ -79,9 +79,9 @@ private IEnumerator GameLoop() {
     yield return StartCoroutine (LevelEnd()); // Find out if some user(s) "won" the level or not. Also, do some cleanup.
     
     if (WinCondition) { // Check if game level progression conditions were met.
-        Application.LoadLevel(++level); // or Application.LoadLevel(Application.loadedLevel) if using same scene
+      Application.LoadLevel(++level); // or Application.LoadLevel(Application.loadedLevel) if using same scene
     } else { // Let the user retry the level by restarting this (non-yielding) coroutine again.
-        StartCoroutine (GameLoop());
+      StartCoroutine (GameLoop());
     }
 }
 ```
@@ -101,11 +101,11 @@ public void StopAllCoroutines(); // Stops all coroutines running on this behavio
 
 ### Coroutine Return Types
 ```csharp	
-yield return null; // A yield instruction that just returns.
-yield return new WaitForSeconds(t); // A yield instruction that waits for t seconds.
-yield new WWW(url); // A yield instruction that waits for the retrieval of contents of URLs.
-yield return new WaitForFixedUpdate(); // Waits until next fixed frame rate update function. 
-yield StartCoroutine(routine) // Chaining: can also wait for other coroutines to finish execution.
+yield return null;                      // A yield instruction that just returns.
+yield return new WaitForSeconds(t);     // A yield instruction that waits for t seconds.
+yield new WWW(url);                     // A yield instruction that waits for the retrieval of contents of URLs.
+yield return new WaitForFixedUpdate();  // Waits until next fixed frame rate update function. 
+yield StartCoroutine(routine)           // Chaining: can also wait for other coroutines to finish execution.
 ```
 
 Example usage:
@@ -124,16 +124,16 @@ IEnumerator instance = null;
 * By method name as string:
 ```csharp
 IEnumerator Start() {
-    StartCoroutine("DoSomething", 2.0F);
-    yield return new WaitForSeconds(1);
-    StopCoroutine("DoSomething");
+  StartCoroutine("DoSomething", 2.0F);
+  yield return new WaitForSeconds(1);
+  StopCoroutine("DoSomething");
 }
 
 IEnumerator DoSomething(float someParameter) {
-    while (true) {
-        print("DoSomething Loop");
-        yield return null;
-    }
+  while (true) {
+    print("DoSomething Loop");
+    yield return null;
+  }
 }
 ```
 -----------------------------------------------------------
