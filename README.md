@@ -26,7 +26,7 @@
 -----------------------------------------------------------
 # Techniques
 ## Coroutines
-_Execution Time Sharing & Threading (not parallel)_
+**Execution Time Sharing** _(not multi-threading or parallel processing)_
 
 [[Video Tutorial]](https://unity3d.com/learn/tutorials/modules/intermediate/scripting/coroutines)
 [[Unite Talk]](http://unity3d.com/learn/resources/extending-coroutines-power-and-glory)
@@ -42,18 +42,18 @@ _Execution Time Sharing & Threading (not parallel)_
 
 ```csharp 
 void Start() {
-    StartCoroutine(SomeCoroutine);
+  StartCoroutine(SomeCoroutine);
 }
 
 void Update() {
-    //ExpensiveFunction();  // muh framerates :( 
+  //ExpensiveFunction();  // muh framerates :( 
 }
 
 IEnumerator SomeCoroutine() {
-    while(true) {
-        ExpensiveFunction();
-        yield return new WaitForSeconds(.1f);
-    }
+  while(true) {
+    ExpensiveFunction();
+    yield return new WaitForSeconds(.1f);
+  }
 }
 ```
 * Common pattern handled by Coroutines:
@@ -68,8 +68,8 @@ IEnumerator SomeCoroutine() {
 * Coroutines also admit a nice, slick, readable game loop:
 ```csharp
 void Start() {
-    // ... other start code ...
-    StartCoroutine (GameLoop()); // Let's play!
+  // ... other start code ...
+  StartCoroutine (GameLoop()); // Let's play!
 }
 
 // This is called from start and will run each phase of the game one after another.
