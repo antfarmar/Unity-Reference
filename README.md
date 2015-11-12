@@ -43,25 +43,25 @@
 For example:
 ```csharp 
 void Start() {
-  StartCoroutine(SomeCoroutine);
+    StartCoroutine(SomeCoroutine);
 }
 
 void Update() {
-  //ExpensiveFunction();  // muh framerates :( 
+    //ExpensiveFunction();  // muh framerates :( 
 }
 
 IEnumerator SomeCoroutine() {
-  while(true) {
-    ExpensiveFunction();
-    yield return new WaitForSeconds(.1f);
+    while(true) {
+        ExpensiveFunction();
+        yield return new WaitForSeconds(.1f);
   }
 }
 ```
-* **A common pattern effectively handled by coroutines:
+* **A common pattern effectively handled by coroutines:**
   * Operations that take more than 1 frame...
   * Where we don't want to block execution...
   * And want to know when finished running.
-  * **Examples:
+  * **Examples:**
     * Cutscenes, Animation
     * AI Sequences/State Machines
     * Expensive Operations
@@ -74,14 +74,14 @@ void Start() {
 
 // This is called from Start() and will run each phase of the game one after another.
 private IEnumerator GameLoop() {
- yield return StartCoroutine (LevelStart());    // Start the level: Initialize, do some fun GUI stuff, ..., yield WaitForSeconds if setup too fast.
+    yield return StartCoroutine (LevelStart());    // Start the level: Initialize, do some fun GUI stuff, ..., yield WaitForSeconds if setup too fast.
     yield return StartCoroutine (LevelPlay());  // Let the user(s) play the level until a win or game over condition is met, then return back here.
     yield return StartCoroutine (LevelEnd());   // Find out if some user(s) "won" the level or not. Also, do some cleanup.
     
     if (WinCondition) {     // Check if game level progression conditions were met.
-      Application.LoadLevel(++level);   // or Application.LoadLevel(Application.loadedLevel) if using same scene
+        Application.LoadLevel(++level);   // or Application.LoadLevel(Application.loadedLevel) if using same scene
     } else {    // Let the user retry the level by restarting this (non-yielding) coroutine again.
-      StartCoroutine (GameLoop());
+        StartCoroutine (GameLoop());
     }
 }
 ```
@@ -109,7 +109,7 @@ yield WaitForEndOfFrame     // Continue after all FixedUpdate has been called on
 yield WWW                   // Continue after a WWW download has completed.
 yield StartCoroutine        // Chains the coroutine, and will wait for the MyFunc coroutine to complete first.
 ```
-Example usage as C# code:
+In actual C# code:
 ```csharp
 yield return null;                      
 yield return new WaitForSeconds(t);     
@@ -118,32 +118,34 @@ yield return new WaitForFixedUpdate();
 yield StartCoroutine(routine)           
 ```
 
-Example usage:
-* By method name as code:
+**Example usages:**
+
+* **By method name as code:**
 ```csharp	
 // Need a reference to a specific coroutine instance to stop it this way.
 IEnumerator instance = null;
  
- // Start coroutine
- instance = SomeCoroutine(a, b, c);
- StartCoroutine(instance); // or instance = StartCoroutine(SomeCoroutine (a, b, c)); (Coroutine continue failure?)
+// Start coroutine
+instance = SomeCoroutine(a, b, c);
+StartCoroutine(instance); // or instance = StartCoroutine(SomeCoroutine (a, b, c)); (Coroutine continue failure?)
  
- // Stop coroutine
- StopCoroutine(instance);
+// Stop coroutine
+StopCoroutine(instance);
 ``` 
-* By method name as string:
+* **By method name as string:**
+
 ```csharp
 IEnumerator Start() {
-  StartCoroutine("DoSomething", 2.0F);
-  yield return new WaitForSeconds(1);
-  StopCoroutine("DoSomething");
+    StartCoroutine("DoSomething", 2.0F);
+    yield return new WaitForSeconds(1);
+    StopCoroutine("DoSomething");
 }
 
 IEnumerator DoSomething(float someParameter) {
-  while (true) {
-    print("DoSomething Loop");
-    yield return null;
-  }
+ 	while (true) {
+		print("DoSomething Loop");
+		yield return null;
+	}
 }
 ```
 -----------------------------------------------------------
