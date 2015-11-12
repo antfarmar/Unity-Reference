@@ -26,7 +26,7 @@
 -----------------------------------------------------------
 # Techniques
 ## Coroutines
-**Execution Time Sharing** _(not multi-threading or parallel processing)_
+**Execution Time Sharing** _(not multi-threading, concurrency, or parallelism)_
 
 [[Video Tutorial]](https://unity3d.com/learn/tutorials/modules/intermediate/scripting/coroutines)
 [[Unite Talk]](http://unity3d.com/learn/resources/extending-coroutines-power-and-glory)
