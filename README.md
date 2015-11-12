@@ -28,7 +28,7 @@
 # Techniques
 
 ## Singleton Pattern
-**Game Managers, Static Classes, Global Variables, & You**
+***Game Managers, Static Classes, Global Variables, & You***
 
 > Singletons are basically an object enforced to have a single instance only and always. You can access it anywhere, any time, without needing to instantiate it. That's why it's so closely related to `static`. For comparison, `static` is basically the same thing, except it's _not an instance_. We don't need to instantiate it, and we can't, because it's automagically allocated. And that can and does bring problems.
 
@@ -54,6 +54,7 @@ This pattern introduces several potential long-term problems:
 
 ### Game Managers as Singletons
 _One object to control them all_
+
 Game Manager Basic Requirements:
 * Be easily extendible
 * Have only one instance allowed
@@ -65,21 +66,21 @@ So why be Singleton? A non-instantiable static class could do the job, no?!
 * You can’t implement an interface with a static class.
 * You can’t pass around a static class as a parameter.
 
-GameManager Singleton Examples:
+####### GameManager Singleton Examples
+
+**Minimal:**
 ```csharp
 public class GameManager : MonoBehaviour {
 	public static GameManager instance = null;  // Static instance of GameManager which allows it to be accessed by any other script.
 
-	// Awake is always called before any Start functions
-	void Awake() {
-		if (instance == null)           // Check if instance already exists
-			instance = this;            // If not, set instance to this
-		else if (instance != this)      // If instance already exists and it's not this:
-			Destroy(this.gameObject);   // Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
+	void Awake() {							// Awake is always called before any Start functions.
+		if (instance == null)				// Check if instance already exists.
+			instance = this;				// If not, set instance to this.
+		else if (instance != this)			// If instance already exists and it's not this:
+			Destroy(this.gameObject);		// Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
 		DontDestroyOnLoad(this.gameObject); // Sets this to not be destroyed when loading new scenes.
 	}
 }
-// code
 ```
 
 * TODO
