@@ -26,12 +26,19 @@
 -----------------------------------------------------------
 # Techniques
 ## Coroutines
-[[video tutorial]](https://unity3d.com/learn/tutorials/modules/intermediate/scripting/coroutines)
+_Execution Time Sharing & Threading (not parallel)_
+
+[[Video Tutorial]](https://unity3d.com/learn/tutorials/modules/intermediate/scripting/coroutines)
+[[Unite Talk]](http://unity3d.com/learn/resources/extending-coroutines-power-and-glory)
+
 * [`Coroutine`](http://docs.unity3d.com/ScriptReference/Coroutine.html) inherits from [`YieldInstruction`](http://docs.unity3d.com/ScriptReference/YieldInstruction.html)
 * A function that can suspend its execution (yield) until the given `YieldInstruction` finishes.
+  * But no return values or error handling (but can be overcome, if necessary)
 * Can be used as a way to spread an effect over a period time, but it is also a **useful optimization**:
+  * Replaces state machines elegantly
+  * Prevents execution blocking
 
-> When a task does not need to be needlessly repeated quite so frequently, you can put it in a coroutine to get an update regularly but not in every single frame. Also, calling an expensive function every frame in `Update()` might introduce significant overhead. To overcome this, use a coroutine to call it, say, only every tenth of a second instead.*
+> When a task does not need to be needlessly repeated quite so frequently, you can put it in a coroutine to get an update regularly but not in every single frame (where it would block execution). Calling an expensive function every frame in `Update()` will introduce significant slowdown. To overcome this, use a coroutine to call it, say, only every tenth of a second instead.*
 
 ```csharp 
 void Start() {
@@ -39,7 +46,7 @@ void Start() {
 }
 
 void Update() {
-    //ExpensiveFunction();  // muh framerates :(
+    //ExpensiveFunction();  // muh framerates :( 
 }
 
 IEnumerator SomeCoroutine() {
@@ -49,7 +56,16 @@ IEnumerator SomeCoroutine() {
     }
 }
 ```
-Coroutines also admit a nice, slick, readable game loop:
+* Common pattern handled by Coroutines:
+  * Operations that take more than 1 frame
+  * Don't want to block execution
+  * And want to know when finished running
+  * Examples:
+    * Cutscenes, Animation
+    * AI Sequences/State Machines
+    * Expensive Operations
+
+* Coroutines also admit a nice, slick, readable game loop:
 ```csharp
 void Start() {
     // ... other start code ...
@@ -89,7 +105,7 @@ yield return null; // A yield instruction that just returns.
 yield return new WaitForSeconds(t); // A yield instruction that waits for t seconds.
 yield new WWW(url); // A yield instruction that waits for the retrieval of contents of URLs.
 yield return new WaitForFixedUpdate(); // Waits until next fixed frame rate update function. 
-yield StartCoroutine(routine) // Can also wait for a coroutine to finish execution.
+yield StartCoroutine(routine) // Chaining: can also wait for other coroutines to finish execution.
 ```
 
 Example usage:
