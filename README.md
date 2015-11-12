@@ -30,8 +30,8 @@
 ## Singleton Pattern
 **Game Managers, Global Static Variables, & You**
 
-* http://wiki.unity3d.com/index.php/Singleton
-* http://wiki.unity3d.com/index.php/Toolbox
+* http://wiki.unity3d.com/index.php/Singleton (simple)
+* http://wiki.unity3d.com/index.php/Toolbox (advanced)
 
 * TODO
 
