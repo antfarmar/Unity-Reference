@@ -6,25 +6,31 @@
 # Index
 1. [Code Snippets](#code-snippets)
 2. [Techniques](#techniques)
-  * [Coroutines](#coroutines)
-  * [Events](#events)
+	* [Singleton Pattern](#singleton-pattern)
+	* [Coroutines](#coroutines)
+	* [Events](#events)
 3. [Optimizations](#optimizations)
-  * to do
+	* TODO
 4. [Quick Links](#quick-links)
-  * [Unity3D Website](#unity-website)
-  * [Documentation](#documentation)
-  * [Community](#community)
-  * [Scripting](#scripting)
-  * [GameObject|Component|Mono|Behaviour|Transform](#gameobjectcomponentmonobehaviourtransform)
-  * [Vectors|Math|Physics|Input](#vectorsmathphysicsinput)
-  * [Optimizations](#optimizations)
-  * [Miscellaneous](#miscellaneous)
+	* [Unity3D Website](#unity-website)
+	* [Documentation](#documentation)
+	* [Community](#community)
+	* [Scripting](#scripting)
+	* [GameObject|Component|Mono|Behaviour|Transform](#gameobjectcomponentmonobehaviourtransform)
+	* [Vectors|Math|Physics|Input](#vectorsmathphysicsinput)
+	* [Optimizations](#optimizations)
+	* [Miscellaneous](#miscellaneous)
  
 -----------------------------------------------------------
 # Code Snippets
 
 -----------------------------------------------------------
 # Techniques
+
+## Singleton Pattern
+
+* TODO
+
 ## Coroutines
 **Execution Time Sharing** _(not multi-threading, concurrency, or parallelism)_
 
@@ -159,7 +165,7 @@ IEnumerator DoSomething(float someParameter) {
 # Optimizations
 ### Section One
 
-* to do
+* TODO
 
 -----------------------------------------------------------
 # Quick Links
