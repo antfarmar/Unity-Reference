@@ -32,43 +32,37 @@
 
 > Singletons are basically an object enforced to have a single instance only and always. You can access it anywhere, any time, without needing to instantiate it. That's why it's so closely related to `static`. For comparison, `static` is basically the same thing, except it's _not an instance_. We don't need to instantiate it, and we can't, because it's automagically allocated. And that can and does bring problems.
 
-* [Good read] (http://programmers.stackexchange.com/questions/40373/so-singletons-are-bad-then-what/218322#218322)
-* http://wiki.unity3d.com/index.php/Singleton (simple)
-* http://wiki.unity3d.com/index.php/Toolbox (advanced)
-* [GameManager example](http://rusticode.com/2013/12/11/creating-game-manager-using-state-machine-and-singleton-pattern-in-unity3d/)
-
-The Singleton design pattern is a very specific type of single instance, specifically one that is:
+**The Singleton design pattern is a very specific type of single instance, specifically one that is:**
 
 * Accessible via a global, static instance field
 * Created either on program initialization or upon first access (lazy instantiation)
 * No public constructor (cannot instantiate directly)
 * Never explicitly freed (implicitly freed on program termination)
 
-This pattern introduces several potential long-term problems:
+**This pattern introduces several potential long-term problems:**
 
 * Inability to use abstract or interface classes
 * Inability to subclass
 * High coupling across the application (difficult to modify)
 * Difficult to test (can't fake/mock in unit tests)
 
-
 ### Game Managers as Singletons
 _One object to control them all_
 
-Game Manager Basic Requirements:
+**Game Manager Basic Requirements:**
 * Be easily extendible
 * Have only one instance allowed
 * Persist across all the scenes (shouldn’t be destroyed when a new scene is loaded)
 * Provide global variable access to other classes
  
-So why be Singleton? A non-instantiable static class could do the job, no?!
+**So why be Singleton? A non-instantiable static class could do the job, no?!**
 * You can’t extend MonoBehaviour with a static class, hence it can't be a Script Component.
 * You can’t implement an interface with a static class.
 * You can’t pass around a static class as a parameter.
 
-###### GameManager Singleton Examples
+#### GameManager Singleton Examples
 
-**Minimal:**
+**Minimal Quick Hack:**
 ```csharp
 public class GameManager : MonoBehaviour {
 	public static GameManager instance = null;  // Static instance of GameManager which allows it to be accessed by any other script.
@@ -83,7 +77,15 @@ public class GameManager : MonoBehaviour {
 }
 ```
 
-* TODO
+* [Singleton on Unify wiki](http://wiki.unity3d.com/index.php/Singleton)
+* [Toolbox example](http://wiki.unity3d.com/index.php/Toolbox)
+* [GameManager example](http://rusticode.com/2013/12/11/creating-game-manager-using-state-machine-and-singleton-pattern-in-unity3d/)
+
+##### Further Reading
+
+* [Good read] (http://programmers.stackexchange.com/questions/40373/so-singletons-are-bad-then-what/218322#218322)
+
+-----------------------------------------------------------
 
 ## Coroutines
 **Execution Time Sharing** _(not multi-threading, concurrency, or parallelism)_
