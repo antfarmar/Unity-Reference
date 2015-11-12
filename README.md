@@ -54,7 +54,7 @@ IEnumerator SomeCoroutine() {
     while(true) {
         ExpensiveFunction();
         yield return new WaitForSeconds(.1f);
-  }
+    }
 }
 ```
 * **A common pattern effectively handled by coroutines:**
@@ -66,7 +66,7 @@ IEnumerator SomeCoroutine() {
     * AI Sequences/State Machines
     * Expensive Operations
 
-* Coroutines also admit a nice, slick, readable game loop:
+* **Coroutines also admit a nice, slick, readable game loop:**
 ```csharp
 void Start() {
     StartCoroutine (GameLoop());    // Let's play!
@@ -109,7 +109,7 @@ yield WaitForEndOfFrame     // Continue after all FixedUpdate has been called on
 yield WWW                   // Continue after a WWW download has completed.
 yield StartCoroutine        // Chains the coroutine, and will wait for the MyFunc coroutine to complete first.
 ```
-In actual C# code:
+**In actual C# code:**
 ```csharp
 yield return null;                      
 yield return new WaitForSeconds(t);     
@@ -117,10 +117,9 @@ yield new WWW(url);
 yield return new WaitForFixedUpdate();  
 yield StartCoroutine(routine)           
 ```
+**Example usages og `StartCoroutine()` & `StopCoroutine()`:**
 
-**Example usages:**
-
-* **By method name as code:**
+* **Passing method name as code:**
 ```csharp	
 // Need a reference to a specific coroutine instance to stop it this way.
 IEnumerator instance = null;
@@ -132,8 +131,7 @@ StartCoroutine(instance); // or instance = StartCoroutine(SomeCoroutine (a, b, c
 // Stop coroutine
 StopCoroutine(instance);
 ``` 
-* **By method name as string:**
-
+* **Passing method name as string:**
 ```csharp
 IEnumerator Start() {
     StartCoroutine("DoSomething", 2.0F);
