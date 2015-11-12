@@ -117,7 +117,7 @@ yield new WWW(url);
 yield return new WaitForFixedUpdate();  
 yield StartCoroutine(routine)           
 ```
-**Example usages og `StartCoroutine()` & `StopCoroutine()`:**
+### Example usages of `StartCoroutine()` & `StopCoroutine()`:
 
 * **Passing method name as code:**
 ```csharp	
@@ -147,12 +147,13 @@ IEnumerator DoSomething(float someParameter) {
 }
 ```
 -----------------------------------------------------------
-## Events
-###Unity Events
+# Events
+### Unity Events
 ### C# Delegate Events
 -----------------------------------------------------------
 # Optimizations
 ### Section One
+
 * to do
 -----------------------------------------------------------
 # Quick Links
