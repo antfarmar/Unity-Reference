@@ -17,7 +17,7 @@
     * [Community](#community)
     * [Scripting](#scripting)
     * [GameObject|Component|Mono|Behaviour|Transform](#gameobjectcomponentmonobehaviourtransform)
-    * [Vectors|Math|Physics|Input](#vectorsmathphysicsinput)
+    * [Math|Random|Vectors|Physics|Input](#mathrandomvectorsphysicsinput)
     * [Debug|Gizmos](#debuggizmos)
     * [Optimizations](#optimizations)
     * [Miscellaneous](#miscellaneous)
@@ -251,10 +251,11 @@ IEnumerator DoSomething(float someParameter) {
 * [Transform](http://docs.unity3d.com/Manual/Transforms.html)|[Class](http://docs.unity3d.com/ScriptReference/Transform.html)
 * [Mono](http://docs.unity3d.com/ScriptReference/MonoBehaviour.html)|[Behaviour](http://docs.unity3d.com/ScriptReference/Behaviour.html)
 
-### Vectors|Math|Physics|Input
+### Math|Random|Vectors|Physics|Input
+* [Mathf](http://docs.unity3d.com/ScriptReference/Mathf.html)
+* [Random](http://docs.unity3d.com/Manual/RandomNumbers.html)|[Class](http://docs.unity3d.com/ScriptReference/Random.html)
 * [Vector Cookbook](http://docs.unity3d.com/Manual/UnderstandingVectorArithmetic.html)
 * [Vector3](http://docs.unity3d.com/ScriptReference/Vector3.html)|[Vector2](http://docs.unity3d.com/ScriptReference/Vector2.html)
-* [Mathf](http://docs.unity3d.com/ScriptReference/Mathf.html)
 * [Physics](http://docs.unity3d.com/ScriptReference/Physics.html)|[Raycast](http://docs.unity3d.com/ScriptReference/Physics.Raycast.html)|[Hit](http://docs.unity3d.com/ScriptReference/RaycastHit.html)
 * [Physics2D](http://docs.unity3d.com/ScriptReference/Physics2D.html)|[Raycast](http://docs.unity3d.com/ScriptReference/Physics2D.Raycast.html)|[Hit2D](http://docs.unity3d.com/ScriptReference/RaycastHit2D.html)
 * [Rigidbody](http://docs.unity3d.com/ScriptReference/Rigidbody.html)|[2D](http://docs.unity3d.com/ScriptReference/Rigidbody.html)
