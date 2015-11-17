@@ -216,6 +216,8 @@ IEnumerator DoSomething(float someParameter) {
 ```
 -----------------------------------------------------------
 # Events
+[UnityEvents vs. C# Delegates](https://github.com/antfarmar/Unity/blob/master/Internal%20Unity%20Tips.md)
+
 ### Unity Events
 ### C# Delegate Events
 -----------------------------------------------------------
