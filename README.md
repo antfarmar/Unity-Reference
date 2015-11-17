@@ -214,9 +214,12 @@ IEnumerator DoSomething(float someParameter) {
     }
 }
 ```
+
+
+
 -----------------------------------------------------------
 # Events
-[UnityEvents vs. C# Delegates](https://github.com/antfarmar/Unity/blob/master/Internal%20Unity%20Tips.md)
+[UnityEvents vs. C# Delegates](https://github.com/antfarmar/Unity/blob/master/Internal%20Unity%20Tips.md#unityevents)
 
 ### Unity Events
 ### C# Delegate Events
@@ -225,6 +228,8 @@ IEnumerator DoSomething(float someParameter) {
 ### Section One
 
 * TODO
+
+
 
 -----------------------------------------------------------
 # Quick Links
