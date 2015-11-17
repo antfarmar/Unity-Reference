@@ -277,6 +277,7 @@ IEnumerator DoSomething(float someParameter) {
 * [Optimizing Graphics Performance](http://docs.unity3d.com/Manual/OptimizingGraphicsPerformance.html)
 * [2D Sprite Rendering Optimizations](http://unity3d.com/learn/resources/boosting-graphics-performance-2d-games)
 * [Internal Unity Tips](http://unity3d.com/learn/resources/internal-unity-tips-and-tricks)
+* [Architecting Games in Unity](https://www.youtube.com/watch?v=64uOVmQ5R1k)
 
 ### Miscellaneous
 * [Unify Community Wiki](http://wiki.unity3d.com/index.php/Main_Page)
