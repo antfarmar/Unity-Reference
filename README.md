@@ -279,7 +279,7 @@ IEnumerator DoSomething(float someParameter) {
 * [Internal Unity Tips](http://unity3d.com/learn/resources/internal-unity-tips-and-tricks)
 * [Architecting Games in Unity](https://www.youtube.com/watch?v=64uOVmQ5R1k)
 * [Profiling (Mobile)](http://docs.unity3d.com/Manual/MobileProfiling.html)
-* 
+
 ### Miscellaneous
 * [Unify Community Wiki](http://wiki.unity3d.com/index.php/Main_Page)
 
