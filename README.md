@@ -135,8 +135,9 @@ void Start() {
     StartCoroutine (GameLoop());    // Let's play!
 }
 
+
 // This is called from Start() and will run each phase of the game one after another.
-private IEnumerator GameLoop() {
+IEnumerator GameLoop() {
     yield return StartCoroutine (LevelStart()); // Start the level: Initialize, do some fun GUI stuff, ..., yield WaitForSeconds if setup too fast.
     yield return StartCoroutine (LevelPlay());  // Let the user(s) play the level until a win or game over condition is met, then return back here.
     yield return StartCoroutine (LevelEnd());   // Find out if some user(s) "won" the level or not. Also, do some cleanup.
@@ -147,6 +148,11 @@ private IEnumerator GameLoop() {
         StartCoroutine (GameLoop());    // Let the user retry the level by restarting this (non-yielding) coroutine again.
     }
 }
+
+// The Coroutines
+IEnumerator LevelStart() { Debug.Log("Start"); yield return new WaitForSeconds(1f); }
+IEnumerator LevelPlay () { while(alive) yield return null; }
+IEnumerator LevelEnd  () { Debug.Log("End.."); yield return new WaitForSeconds(1f); }
 ```
 
 ### Usage
