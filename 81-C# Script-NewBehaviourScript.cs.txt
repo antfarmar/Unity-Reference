@@ -1,80 +1,118 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class #SCRIPTNAME# : MonoBehaviour {
 
 
-    // For objects added to the scene, the Awake and OnEnable functions for all scripts will be called before Start, Update, etc are called for any of them.
-    // Cannot be enforced when an object is instantiated during gameplay.
-    
-    // This function is always called before any Start functions and also just after a prefab is instantiated.
-    // If a GameObject is inactive during start up Awake is not called until it is made active, or a function in any script attached to it is called.
+
+    // Awake is called:
+    // exactly once in the lifetime of the script (like Start).
+    // upon GO activation or if a fn in any script attached to it is called.
+    // even if the script is disabled
+    // before any Start functions 
+    // after all GO's are initialized
+    // USAGE: initialize any references, variables, or game state before the game starts.
     void Awake() {
     
     }
     
-    // Only called if the Object is active. This function is called just after the object is enabled.
-    // This happens when a MonoBehaviour instance is created, such as when a level is loaded or a GameObject with the script component is instantiated.
+    
+    // OnEnable is called:
+    // just after the Behaviour is enabled && GO active.
+    // when a MonoBehaviour instance is created.
+    // when a GO with the script component is instantiated.
+    // when scripts are reloaded after compilation (OnDisable->OnEnable).
+    // USAGE: restarting behaviours which are frequently disabled/deactivated.
     void OnEnable() {
         
     }
     
     
-    // Start is called before the first frame update only if the script instance is enabled.
-    // Use this for initialization.
+    // OnDisable is called:
+    // when the Behaviour becomes disabled || GO inactive.
+    // when the GO is destroyed.
+    // when scripts are reloaded after compilation (OnDisable->OnEnable)
+    // USAGE: cleanup.
+    void OnDisable() {
+        
+    }
+
+    
+    // Start is called:
+    // exactly once in the lifetime of the script (like Awake).
+    // only if the script instance is enabled.
+    // after all GO's Awake functions have been called (except during gameplay, naturally).
+    // on the frame when a script is enabled just before any Update methods called.
+    // USAGE: initialization, using refs/vars initialized in Awake.
     void Start() {
     
     }
     
     
-    // Update is called once per frame. It is the main workhorse function for frame updates.
+    // Update is called:
+    // only if the MonoBehaviour is enabled.
+    // once per frame.
+    // USAGE: get Input, most game behaviour.
     void Update() {
     
     }
     
     
-    // FixedUpdate is often called more frequently than Update.
-    // It can be called multiple times per frame, if the frame rate is low and it may not be called between frames at all if the frame rate is high.
-    // All physics calculations and updates occur immediately after FixedUpdate.
-    // When applying movement calculations inside FixedUpdate, you do not need to multiply your values by Time.deltaTime.
-    // This is because FixedUpdate is called on a reliable timer, independent of the frame rate.
+    // FixedUpdate is called:
+    // only if the MonoBehaviour is enabled.
+    // on a reliable timer, independent of the frame rate.
+    // multiple times per frame if the frame rate is low.
+    // rarely between frames if the frame rate is high.
+    // USAGE: should be used instead of Update when dealing with Rigidbody. 
     void FixedUpdate() {
-    
+        // All physics calculations and updates occur immediately after FixedUpdate.
+        // When applying movement calculations inside FixedUpdate, you do not need to multiply your values by Time.deltaTime.
+        
     }
     
     
-    // LateUpdate is called once per frame, after Update has finished.
-    // Any calculations that are performed in Update will have completed when LateUpdate begins.
-    // A common use for LateUpdate would be a following third-person camera.
-    // If you make your character move and turn inside Update, you can perform all camera movement and rotation calculations in LateUpdate.
-    // This will ensure that the character has moved completely before the camera tracks its position.
+    // LateUpdate is called:
+    // once per frame, after Update has finished.
+    // to make use of newly updated data.
+    // USAGE: Camera movements based on updated GO positions.
     void LateUpdate() {
     
     }
     
-    // This is called at the end of the frame where the pause is detected, effectively between the normal frame updates.
-    // One extra frame will be issued after OnApplicationPause is called to allow the game to show graphics that indicate the paused state.
-    void OnApplicationPause() {
-        
-    }
     
+    // WHEN QUITTING: These functions get called on all the active objects in your scene.
     
-    // WHEN QUITTING
-    // These functions get called on all the active objects in your scene:
-    
-    // This function is called on all game objects before the application is quit.
-    // In the editor it is called when the user stops playmode. In the web player it is called when the web view is closed.
-    void OnApplicationQuit() {
-        
-    } 
-    
-    // This function is called after all frame updates for the last frame of the object’s existence.
-    // The object might be destroyed in response to Object.Destroy or at the closure of a scene).
+    // OnDestroy is called:
+    // when the MonoBehaviour will be destroyed.
+    // on game objects that have previously been active.
+    // after all frame updates for the last frame of the object’s existence.
+    // in response to Object.Destroy or at the closure of a scene.
     void OnDestroy() {
         
     }
     
-}
+    
+    // OnApplicationQuit is called:
+    // on all game objects before the application is quit.
+    // Editor: when the user stops playmode.
+    // Web player: when the web view is closed.
+    void OnApplicationQuit() {
+        
+    } 
+    
+    
+    // OnApplicationPause is called:
+    // when the player pauses.
+    // at the end of the frame where the pause is detected.
+    // between the normal frame updates.
+    // One extra frame will be issued after OnApplicationPause is called to allow the game to show graphics that indicate the paused state.
+    void OnApplicationPause(bool pauseStatus) {
+        // paused = pauseStatus;
+    }
+    
+} // end class
+
+
 
 /*
 /// DEBUG ///////////////////////////////////////////////////////////////////
@@ -158,7 +196,7 @@ OnRenderObject: Called after all regular scene rendering is done. You can use GL
 OnPostRender: Called after a camera finishes rendering the scene.
 OnRenderImage: Called after scene rendering is complete to allow postprocessing of the screen image.
 OnGUI: Called multiple times per frame in response to GUI events. The Layout and Repaint events are processed first, followed by a Layout and keyboard/mouse event for each input event.
-OnDrawGizmos Used for drawing Gizmos in the scene view for visualisation purposes.
+OnDrawGizmos: Used for drawing Gizmos in the scene view for visualisation purposes.
 
 */
 
