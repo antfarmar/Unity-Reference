@@ -24,11 +24,15 @@
 
 -----------------------------------------------------------
 # Code Snippets
+-----------------------------------------------------------
+
+* todo
 
 -----------------------------------------------------------
 # Techniques
+-----------------------------------------------------------
 
-## Singleton Pattern
+# Singleton Pattern
 ***Game Managers, Static Classes, Global Variables, & You***
 
 > Singletons are basically an object enforced to have a single instance only and always. You can access it anywhere, any time, without needing to instantiate it. That's why it's so closely related to `static`. For comparison, `static` is basically the same thing, except it's _not an instance_. We don't need to instantiate it, and we can't, because it's automagically allocated. And that can and does bring problems.
@@ -78,17 +82,16 @@ public class GameManager : MonoBehaviour {
 }
 ```
 
+##### Further Reading
 * [Singleton on Unify wiki](http://wiki.unity3d.com/index.php/Singleton)
 * [Toolbox example](http://wiki.unity3d.com/index.php/Toolbox)
 * [GameManager example](http://rusticode.com/2013/12/11/creating-game-manager-using-state-machine-and-singleton-pattern-in-unity3d/)
-
-##### Further Reading
-
 * [Good read] (http://programmers.stackexchange.com/questions/40373/so-singletons-are-bad-then-what/)
 
 -----------------------------------------------------------
+# Coroutines
+-----------------------------------------------------------
 
-## Coroutines
 **Execution Time Sharing** _(not multi-threading, concurrency, or parallelism)_
 
 [[Video Tutorial]](https://unity3d.com/learn/tutorials/modules/intermediate/scripting/coroutines)
@@ -226,11 +229,15 @@ IEnumerator DoSomething(float someParameter) {
 -----------------------------------------------------------
 # Events
 [UnityEvents vs. C# Delegates](https://github.com/antfarmar/Unity/blob/master/Internal%20Unity%20Tips.md#unityevents)
+-----------------------------------------------------------
 
 ### Unity Events
 ### C# Delegate Events
+
 -----------------------------------------------------------
 # Optimizations
+-----------------------------------------------------------
+
 ### Section One
 
 * TODO
@@ -239,6 +246,7 @@ IEnumerator DoSomething(float someParameter) {
 
 -----------------------------------------------------------
 # Quick Links
+-----------------------------------------------------------
 
 ## Unity Website
 
