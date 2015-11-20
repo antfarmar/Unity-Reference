@@ -16,14 +16,15 @@ In Unity,  `GameObject` is simply a container of `Components`.
 ![Entity-Component Pattern](Entity-Component.png)
 -----------------------------------------------------------
 # Index
+1. [Architecure, Standards, Best Practices]()
 1. [Code Snippets](#code-snippets)
-2. [Techniques](#techniques)
+1. [Techniques](#techniques)
     * [Singleton Pattern](#singleton-pattern)
     * [Coroutines](#coroutines)
     * [Events](#events)
-3. [Optimizations](#optimizations)
+1. [Optimizations](#optimizations)
     * TODO
-4. [Quick Links](#quick-links)
+1. [Quick Links](#quick-links)
     * [Unity3D Website](#unity-website)
     * [Documentation](#documentation)
     * [Community](#community)
@@ -33,6 +34,26 @@ In Unity,  `GameObject` is simply a container of `Components`.
     * [Debug|Gizmos](#debuggizmos)
     * [Optimizing](#optimizing)
     * [Miscellaneous](#miscellaneous)
+
+-----------------------------------------------------------
+# Architecure, Standards, Best Practices
+
+##### Software Design 101
+
+* Use C#
+  * Strongly-typed, lexical analysis = debugging easy
+  * Lots of documentation, libraries, community supported
+* Stay Organized
+  * Naming conventions
+    * Descriptive names, standard capitilization
+    * Unity handles spaces in names
+  * Logical folder structure
+    * Easy to locate assets
+* Zero-tolerance for:
+  * Warnings & Errors
+  * Runtime Memory Allocaton
+* Use the Profiler often
+  * Keep code constantly optimized
 
 -----------------------------------------------------------
 # Code Snippets
