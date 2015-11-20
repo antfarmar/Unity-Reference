@@ -95,10 +95,11 @@ public class GameManager : MonoBehaviour {
 ```
 
 ##### Further Reading
-* [Singleton on Unify wiki](http://wiki.unity3d.com/index.php/Singleton)
+* [Singleton: Game Programming Patterns Book](http://gameprogrammingpatterns.com/singleton.html)
+* [Singleton example on Unify wiki](http://wiki.unity3d.com/index.php/Singleton)
 * [Toolbox example](http://wiki.unity3d.com/index.php/Toolbox)
 * [GameManager example](http://rusticode.com/2013/12/11/creating-game-manager-using-state-machine-and-singleton-pattern-in-unity3d/)
-* [Good read] (http://programmers.stackexchange.com/questions/40373/so-singletons-are-bad-then-what/)
+* [Good read about Singleton issues] (http://programmers.stackexchange.com/questions/40373/so-singletons-are-bad-then-what/)
 
 -----------------------------------------------------------
 # Coroutines
