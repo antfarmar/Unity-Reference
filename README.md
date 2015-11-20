@@ -1,5 +1,17 @@
-# Unity Cheat Sheet
-***Code snippets, Techniques, Optimizations, Links***
+# Unity Reference Cheat Sheet
+
+#### _Code snippets, Techniques, Optimizations, Links_
+
+**Unity:** An Entity-Component Game Engine
+
+**Entity-Component Pattern:** Allows a single entity to span multiple domains without coupling the domains to each other.
+
+**`GameObject`:** The single entity that spans multiple domains _(Transform, Physics, Rendering, ...)_.
+
+**`Component`:** Keeps the domains isolated, where the code for each is placed in its own `Component` class.
+
+In Unity,  `GameObject` is simply a container of `Components`.
+
 -----------------------------------------------------------
 ![Entity-Component Pattern](Entity-Component.png)
 -----------------------------------------------------------
