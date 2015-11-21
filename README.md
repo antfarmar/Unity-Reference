@@ -64,8 +64,20 @@ In Unity,  `GameObject` is simply a container of `Components`.
 -----------------------------------------------------------
 # Techniques
 -----------------------------------------------------------
+## Implementing Gameplay
 
-# Singleton Pattern
+### Inter-Object Communication
+* Public Static Classes\Methods
+* Public Instance Methods
+* Events/Messages
+
+### Managers\Controllers
+
+Most common patterns:
+* Singletons
+* Object Pools
+
+### Singleton Pattern
 ***Game Managers, Static Classes, Global Variables, & You***
 
 > Singletons are basically an object enforced to have a single instance only and always. You can access it anywhere, any time, without needing to instantiate it. That's why it's so closely related to `static`. For comparison, `static` is basically the same thing, except it's _not an instance_. We don't need to instantiate it, and we can't, because it's automagically allocated. And that can and does bring problems.
