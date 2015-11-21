@@ -279,6 +279,9 @@ IEnumerator DoSomething(float someParameter) {
 
 ### Unity Events
 ### C# Delegate Events
+* Setting a delegate ALLOCATES memory.
+  * Using a single delegate and constantly setting it will cause a GC call to reclaim memory.
+  * Better to pre-set an array of delegates in the `Awake` function to overcome this.
 
 -----------------------------------------------------------
 # Optimizations
