@@ -278,11 +278,59 @@ IEnumerator DoSomething(float someParameter) {
 [UnityEvents vs. C# Delegates](https://github.com/antfarmar/Unity/blob/master/Internal%20Unity%20Tips.md#unityevents)
 -----------------------------------------------------------
 
-### Unity Events
+**Events** are closely related/similar to the **Observer** software design pattern.
+
+### Observer Pattern
+*  Decoupling:
+  * It helps us loosen the coupling between two pieces of code.
+  * It lets a subject indirectly communicate with some observer without being statically bound to it.
+  * It lets one piece of code announce that something interesting happened without actually caring who receives the notification.
+
+**Problems:**
+* Object heavy
+* Have to implement an entire interface just to receive a notification.
+* Can’t have a single class that uses different notification methods for different subjects.
+
+Modern approach is for an “Observer” to be only a reference to a method or function, like C# delegates:
+
 ### C# Delegate Events
+
+#### Delegates
+
+* A delegate is a type that represents references to methods with a particular parameter list and return type. When you instantiate a delegate, you can associate its instance with any method with a compatible signature and return type. You can invoke (or call) the method through the delegate instance.
+* Delegates are used to pass methods as arguments to other methods. 
+
+#### Events
+* Events enable a class or object to notify other classes or objects when something of interest occurs.
+* The class that sends (or raises) the event is called the publisher and the classes that receive (or handle) the event are called subscribers.
+* The publisher determines when an event is raised; the subscribers determine what action is taken in response to the event.
+* Event handlers are nothing more than methods that are invoked through delegates. You create a custom method, and a class can call your method when a certain event occurs.
+* The following example shows a delegate declaration:
+  * `public delegate int PerformCalculation(int x, int y);`
+
+
+##### Publisher-Subscriber Model
+
+* C# has "events" baked into the language.
+  * The `event` keyword is used to declare an event in a publisher class.
+    * `public event SampleEventHandler SampleEvent;`
+* the "observer" you register is a "delegate" (delegates are a reference to a method).
+    * `public delegate void SampleEventHandler(object sender, SampleEventArgs e);`
+  
+  
+**Problems:**
 * Setting a delegate ALLOCATES memory.
   * Using a single delegate and constantly setting it will cause a GC call to reclaim memory.
   * Better to pre-set an array of delegates in the `Awake` function to overcome this.
+
+### Unity Events
+
+* [UnityEvent:](https://github.com/antfarmar/Unity/blob/master/Internal%20Unity%20Tips.md#unityevents)
+  * used in Unity UI system.
+  * Serialized in editor.
+
+*Examples:
+  * example
 
 -----------------------------------------------------------
 # Optimizations
