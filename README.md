@@ -145,6 +145,7 @@ public class GameManager : MonoBehaviour {
 
 * [`Coroutine`](http://docs.unity3d.com/ScriptReference/Coroutine.html) inherits from [`YieldInstruction`](http://docs.unity3d.com/ScriptReference/YieldInstruction.html)
 * A function that can suspend its execution (yield) until the given `YieldInstruction` finishes.
+    * Maintains local parameter references when called.
     * No return values or error handling (but can be overcome, if necessary)
 * Can be used as a way to spread an effect over a period time. It is also a **useful optimization**:
     * Replaces state machines elegantly
