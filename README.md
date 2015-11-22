@@ -280,8 +280,10 @@ IEnumerator DoSomething(float someParameter) {
 
 **Events** are closely related/similar to the **Observer** software design pattern.
 
+[Observer: gameprogrammingpatterns chapter](http://gameprogrammingpatterns.com/observer.html)
+
 ### Observer Pattern
-*  Used for Decoupling:
+* Simple, workable solution for **Decoupling** classes:
   * It helps us loosen the coupling between two pieces of code.
   * It lets a subject indirectly communicate with some observer without being statically bound to it.
   * It lets one piece of code announce that something interesting happened without actually caring who receives the notification.
