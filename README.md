@@ -1,4 +1,4 @@
-# Unity Reference Cheat Sheet
+# :ant: Unity Reference Cheat Sheet :ant:
 
 #### _Code snippets, Techniques, Optimizations, Links_
 
@@ -15,6 +15,7 @@ In Unity,  `GameObject` is simply a container of `Components`.
 -----------------------------------------------------------
 ![Entity-Component Pattern](Entity-Component.png)
 -----------------------------------------------------------
+
 # Index
 1. [Architecture, Standards, Best Practices](#architecture-standards-best-practices)
 1. [Code Snippets](#code-snippets)
