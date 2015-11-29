@@ -276,7 +276,11 @@ IEnumerator DoSomething(float someParameter) {
 
 -----------------------------------------------------------
 # Events
-[UnityEvents vs. C# Delegates](https://github.com/antfarmar/Unity/blob/master/Internal%20Unity%20Tips.md#unityevents)
+
+* [UnityEvents vs. C# Delegates](https://github.com/antfarmar/Unity/blob/master/Internal%20Unity%20Tips.md#unityevents)
+* [Reddit Post](https://www.reddit.com/r/Unity3D/comments/2yh54n/unityengineevents_eventsystem_c_delegate/)
+* [Reddit Post](https://www.reddit.com/r/Unity3D/comments/35oekm/delegate_events_vs_unityevent_which_one_is/)
+
 -----------------------------------------------------------
 
 **Events** are closely related/similar to the **Observer** software design pattern.
@@ -297,6 +301,7 @@ IEnumerator DoSomething(float someParameter) {
 Modern approach is for an “Observer” to be only a reference to a method or function, like C# delegates:
 
 ### C# Delegate Events
+* [Unity Video Tutorial](http://unity3d.com/learn/tutorials/modules/intermediate/scripting/events)
 
 #### Delegates
 
@@ -307,7 +312,7 @@ Modern approach is for an “Observer” to be only a reference to a method or f
 * The following example shows a delegate declaration:
   * `public delegate int PerformCalculation(int x, int y);`
 
-#### Events: C# Publisher-Subscriber Model
+#### Delegate Events: C# Publisher-Subscriber Model
 
 [Events (C# Programming Guide)](https://msdn.microsoft.com/en-us/library/awbftdfh.aspx)
 
@@ -329,7 +334,8 @@ Modern approach is for an “Observer” to be only a reference to a method or f
 
 
 ### Unity Events
-
+* [Manual Entry](http://docs.unity3d.com/Manual/EventSystem.html)
+* [Scripting API](http://docs.unity3d.com/ScriptReference/Events.UnityEvent.html)
 * [UnityEvent:](https://github.com/antfarmar/Unity/blob/master/Internal%20Unity%20Tips.md#unityevents)
   * used in Unity UI system.
   * Serialized in editor.
