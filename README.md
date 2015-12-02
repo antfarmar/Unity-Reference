@@ -372,6 +372,7 @@ Modern approach is for an “Observer” to be only a reference to a method or f
 ### Scripting
 * [Scripting API](http://docs.unity3d.com/ScriptReference/index.html)
 * [Scripting Tutorials: Concise Videos & Code Snippets](http://unity3d.com/learn/tutorials/topics/scripting)
+   * [Implementations in Unity](https://github.com/antfarmar/Unity-Scripting-Tutorials#unity-scripting-tutorials)
 * [Good Coding Practices](https://unity3d.com/learn/tutorials/modules/intermediate/scripting/coding-practices)
 * [Script Serialization](http://docs.unity3d.com/Manual/script-Serialization.html)
 
