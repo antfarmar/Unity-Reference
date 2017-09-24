@@ -1,4 +1,4 @@
-# :ant: Unity Reference Cheat Sheet :ant:
+# Unity Reference Cheat Sheet
 
 #### _Code snippets, Techniques, Optimizations, Links_
 
@@ -18,7 +18,6 @@ In Unity,  `GameObject` is simply a container of `Components`.
 
 # Index
 1. [Architecture, Standards, Best Practices](#architecture-standards-best-practices)
-1. [Code Snippets](#code-snippets)
 1. [Techniques](#techniques)
     * [Singleton Pattern](#singleton-pattern)
     * [Coroutines](#coroutines)
@@ -55,12 +54,6 @@ In Unity,  `GameObject` is simply a container of `Components`.
   * Runtime Memory Allocaton
 * Use the Profiler often
   * Keep code constantly optimized
-
------------------------------------------------------------
-# Code Snippets
------------------------------------------------------------
-
-* todo
 
 -----------------------------------------------------------
 # Techniques
